@@ -24,7 +24,7 @@
 	],
 	"env": {
 		"browser": true,
-		"module": true,
+		// "module": true,
 		"es6": true,
 		"jest": true,
 		"node": true

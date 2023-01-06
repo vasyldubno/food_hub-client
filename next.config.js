@@ -15,8 +15,9 @@ const nextConfig = {
     // ],
 
     /* second method */
-    loader: "default",
-    domains: ["res.cloudinary.com"]
+    loader: "cloudinary",
+    domains: ["res.cloudinary.com"],
+    path: ''
   },
   compiler: {
     reactRemoveProperties: { properties: ['^data-testId$'] },
