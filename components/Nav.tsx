@@ -3,6 +3,17 @@ import Link from 'next/link'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import { FaTiktok } from 'react-icons/fa'
+import { Cherry_Swash, Signika } from '@next/font/google'
+
+const signika = Signika({
+	subsets: ['latin'],
+	weight: ['700', '300', '400', '500', '600'],
+})
+
+const cherry = Cherry_Swash({
+	subsets: ['latin'],
+	weight: '700',
+})
 
 export const Nav = () => {
 	return (

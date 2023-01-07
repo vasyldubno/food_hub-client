@@ -15,9 +15,9 @@ const nextConfig = {
     // ],
 
     /* second method */
-    loader: "cloudinary",
+    // loader: "cloudinary",
     domains: ["res.cloudinary.com"],
-    path: ''
+    // path: 'https://res.cloudinary.com/dtkchspyx/image/upload/'
   },
   compiler: {
     reactRemoveProperties: { properties: ['^data-testId$'] },
