@@ -15,10 +15,11 @@ const nextConfig = {
     // ],
 
     /* second method */
-    // loader: "custom",
-    // domains: ["res.cloudinary.com"],
-    // path: ''
     unoptimized: true
+
+    // loader: 'default',
+    // path: '/_next/image',
+    // domains: ["res.cloudinary.com"]
   },
   compiler: {
     reactRemoveProperties: { properties: ['^data-testId$'] },

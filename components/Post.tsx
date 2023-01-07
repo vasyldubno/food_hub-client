@@ -37,7 +37,7 @@ export const Post: FC<Post> = ({ recipe }) => {
 						<Link href={`/posts/${recipe.id}`}>
 							<Box className="relative h-[200px] overflow-hidden rounded-xl md:h-[300px] lg:h-[300px]">
 								<Image
-									src={recipe?.attributes?.cover?.data?.attributes?.url}
+									src={`${recipe?.attributes?.cover?.data?.attributes?.url}`}
 									alt="recipe"
 									fill
 									sizes="(min-width: 320px) 100vw"
