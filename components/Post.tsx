@@ -1,15 +1,10 @@
-import { Box, Typography } from '@mui/material'
-import Link from 'next/link'
-import Image from 'next/image'
 import AvTimerIcon from '@mui/icons-material/AvTimer'
+import { Box, Typography } from '@mui/material'
+import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC, useRef } from 'react'
 import { Recipe } from '../types/RecipeInterface'
-import { FC, useEffect, useRef } from 'react'
-import {
-	motion,
-	useAnimation,
-	useAnimationControls,
-	useInView,
-} from 'framer-motion'
 
 interface Post {
 	recipe: Recipe
@@ -34,10 +29,10 @@ export const Post: FC<Post> = ({ recipe }) => {
 					}
 				>
 					<Box className="ml-2">
-						<Link href={`/posts/${recipe.id}`}>
+						<Link href={`/posts/${recipe._id}`}>
 							<Box className="relative h-[200px] overflow-hidden rounded-xl md:h-[300px] lg:h-[300px]">
 								<Image
-									src={`${recipe?.attributes?.cover?.data?.attributes?.url}`}
+									src={`${recipe.image.url}`}
 									alt="recipe"
 									fill
 									sizes="(min-width: 320px) 100vw"
@@ -47,13 +42,13 @@ export const Post: FC<Post> = ({ recipe }) => {
 							</Box>
 
 							<Typography className="pt-3 font-signika text-xl font-semibold">
-								{recipe.attributes.title}
+								{recipe.title}
 							</Typography>
 							<Box className="pt-1">
 								<Box className="flex items-center gap-3">
 									<AvTimerIcon />
 									<Typography className="font-ubuntu text-base font-normal">
-										{recipe.attributes.total_time}
+										{recipe.total_time}
 									</Typography>
 								</Box>
 							</Box>

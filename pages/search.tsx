@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Post } from '../components/Post'
 import { Recipe } from '../types/RecipeInterface'
+import { sanityClient } from '../utils/sanityClient'
 
 export default function Page() {
 	const router = useRouter()
@@ -15,14 +16,27 @@ export default function Page() {
 	const { isLoading } = useQuery(
 		['', search],
 		async () => {
-			return await axios.get(
-				`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/recipes?populate=*&filters[title][$containsi]=${search}`
-			)
+			return await sanityClient.fetch(`*[_type == "post" && title match "*${search}*" || categories->name match "*${search}*"]{
+				categories->{
+					name
+				},
+				title,
+				description,
+				ingredients,
+				steps,
+				author,
+				yields,
+				prep_time,
+				total_time,
+				image,
+				_id
+			}`)
 		},
 		{
 			enabled: !!search,
 			onSuccess(data) {
-				setRecipes(data.data.data)
+				console.log(data)
+				setRecipes(data)
 			},
 		}
 	)

@@ -18,6 +18,7 @@ export const InputSearch = () => {
 	return (
 		<>
 			<input
+				data-testid="input"
 				type="text"
 				className="ml-4 mr-4 h-14 bg-gray-500/50 px-2 font-signika text-white placeholder:font-signika placeholder:font-normal focus:outline-0"
 				placeholder="Search..."
@@ -28,3 +29,4 @@ export const InputSearch = () => {
 		</>
 	)
 }
+// create test for handleKeyUp onKeyUp using react-testing-library

@@ -6,7 +6,9 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Post } from '../../components/Post'
+import { Loader } from '../../components/UI/Loader'
 import { Recipe } from '../../types/RecipeInterface'
+import { sanityClient } from '../../utils/sanityClient'
 
 export default function Page() {
 	const [posts, setPosts] = useState<Recipe[]>([])
@@ -19,14 +21,36 @@ export default function Page() {
 	const { isLoading } = useQuery(
 		['posts', category],
 		async () => {
-			return await axios.get(
-				`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/recipes?populate=*&filters[category][$eq]=${category}`
+			// return await axios.get(
+			// 	`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/recipes?populate=*&filters[category][$eq]=${category}`
+			// )
+
+			// return await sanityClient.fetch(`*[_categories == "${category}"]{
+			// 	categories->{
+			// 		name
+			// 	},
+			// 	title,
+			// 	description,
+			// 	ingredients,
+			// 	steps,
+			// 	author,
+			// 	yields,
+			// 	prep_time,
+			// 	total_time,
+			// 	image,
+			// 	_id
+			// }`)
+
+			return await sanityClient.fetch(
+				`*[_type == 'post' && categories->name == $category]`,
+				{ category }
 			)
 		},
 		{
 			enabled: !!category,
 			onSuccess(data) {
-				setPosts(data?.data?.data)
+				console.log(data)
+				setPosts(data)
 			},
 			onError(err: AxiosError) {
 				setError(true)
@@ -35,15 +59,19 @@ export default function Page() {
 		}
 	)
 
-	console.log(posts)
+	// console.log(posts)
 
 	return (
 		<>
 			<Head>
 				<title>{category?.charAt(0).toUpperCase() + category?.slice(1)}</title>
 			</Head>
-			{error && <p>Error</p>}
-			{isLoading && <p>Loading...</p>}
+			{error && <p>Error {errorMessage}</p>}
+			{isLoading && (
+				<div className="flex justify-center">
+					<Loader />
+				</div>
+			)}
 			<Box
 				style={{
 					backgroundImage: `url('https://res.cloudinary.com/dtkchspyx/image/upload/v1672823818/food_hub/bg_category.jpg')`,
@@ -60,7 +88,7 @@ export default function Page() {
 					columns={{ xs: 4, sm: 8, md: 12 }}
 				>
 					{posts.map((post, index) => (
-						<Grid item xs={2} sm={4} md={3} key={index}>
+						<Grid item xs={2} sm={4} md={3} key={post._id}>
 							<Post recipe={post} />
 						</Grid>
 					))}
