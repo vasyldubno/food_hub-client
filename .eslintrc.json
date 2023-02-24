@@ -1,52 +1,62 @@
-// {
-//   "extends": ["next/babel", "next/core-web-vitals"],
-//   "rules": {
-//     "react-hooks/exhaustive-deps": "off"
-//   }
-// }
-
 {
 	"extends": [
-		//    "next/babel",
 		"next/core-web-vitals",
 		"airbnb",
 		"airbnb/hooks",
 		"eslint:recommended",
 		"prettier",
 		"plugin:prettier/recommended",
-		"plugin:@next/next/recommended",
+		// "plugin:@next/next/recommended",
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:@typescript-eslint/recommended-requiring-type-checking",
-		"plugin:jest/recommended",
-		"plugin:jest/style",
-		"plugin:testing-library/react"
+		"plugin:@typescript-eslint/recommended-requiring-type-checking"
 	],
-	"env": {
-		"browser": true,
-		// "module": true,
-		"es6": true,
-		"jest": true,
-		"node": true
-	},
 	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
 	"parserOptions": {
-		"project": "tsconfig.json",
+		// "project": ["./tsconfig.json"], // Specify it only for TypeScript files
 		"ecmaVersion": 2015,
-		//    "sourceType": "module",
 		"ecmaFeatures": {
 			"jsx": true
 		}
 	},
-	"rules": {
-		"prettier/prettier": ["error"],
-		"indent": ["error", 2],
-		"react-hooks/exhaustive-deps": "off"
-	},
-	// "plugins": ["react", "prettier", "@typescript-eslint"],
 	"settings": {
 		"react": {
 			"version": "detect"
 		}
+	},
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jest": true,
+		"node": true
+	},
+	// "overrides": [
+	// 	{
+	// 		"files": ["*.ts", "*.tsx"] // Your TypeScript files extension
+
+	// 		// As mentioned in the comments, you should extend TypeScript plugins here,
+	// 		// instead of extending them outside the `overrides`.
+	// 		// If you don't want to extend any rules, you don't need an `extends` attribute.
+
+	// 		// "extends": [
+	// 		// 	"plugin:@typescript-eslint/recommended",
+	// 		// 	"plugin:@typescript-eslint/recommended-requiring-type-checking"
+	// 		// ],
+
+	// 		// "parserOptions": {
+	// 		// 	"project": ["./tsconfig.json"] // Specify it only for TypeScript files
+	// 		// }
+	// 	}
+	// ],
+	"rules": {
+		"prettier/prettier": ["error"],
+		"prefer-const": "error",
+		"import/prefer-default-export": "off",
+		"react/function-component-definition": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+		"react/react-in-jsx-scope": "off",
+		"@typescript-eslint/no-unused-vars": "off",
+		"react/jsx-props-no-spreading": "off"
 	}
 }

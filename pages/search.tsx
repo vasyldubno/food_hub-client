@@ -1,5 +1,4 @@
 import { Box, Grid } from '@mui/material'
-import axios from 'axios'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -35,7 +34,6 @@ export default function Page() {
 		{
 			enabled: !!search,
 			onSuccess(data) {
-				console.log(data)
 				setRecipes(data)
 			},
 		}

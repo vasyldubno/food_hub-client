@@ -1,6 +1,7 @@
+import { FC } from 'react'
 import { ColorRing } from 'react-loader-spinner'
 
-export const Loader = () => (
+export const Loader: FC = () => (
 	<ColorRing
 		visible={true}
 		height="180"

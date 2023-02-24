@@ -21,26 +21,6 @@ export default function Page() {
 	const { isLoading } = useQuery(
 		['posts', category],
 		async () => {
-			// return await axios.get(
-			// 	`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/recipes?populate=*&filters[category][$eq]=${category}`
-			// )
-
-			// return await sanityClient.fetch(`*[_categories == "${category}"]{
-			// 	categories->{
-			// 		name
-			// 	},
-			// 	title,
-			// 	description,
-			// 	ingredients,
-			// 	steps,
-			// 	author,
-			// 	yields,
-			// 	prep_time,
-			// 	total_time,
-			// 	image,
-			// 	_id
-			// }`)
-
 			return await sanityClient.fetch(
 				`*[_type == 'post' && categories->name == $category]`,
 				{ category }
@@ -49,7 +29,6 @@ export default function Page() {
 		{
 			enabled: !!category,
 			onSuccess(data) {
-				console.log(data)
 				setPosts(data)
 			},
 			onError(err: AxiosError) {
@@ -58,8 +37,6 @@ export default function Page() {
 			},
 		}
 	)
-
-	// console.log(posts)
 
 	return (
 		<>
@@ -77,11 +54,11 @@ export default function Page() {
 					backgroundImage: `url('https://res.cloudinary.com/dtkchspyx/image/upload/v1672823818/food_hub/bg_category.jpg')`,
 					boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,.5)',
 				}}
-				className="z-50 flex h-[25vh] items-center justify-center bg-cover bg-center bg-no-repeat font-signika text-9xl text-white"
+				className="z-50 flex h-[25vh] items-center justify-center bg-cover bg-center bg-no-repeat font-signika text-[3rem] text-white sm:text-9xl"
 			>
 				{category?.charAt(0).toUpperCase() + category?.slice(1)}
 			</Box>
-			<Box className="my-0 mx-auto mt-[100px] mb-14 max-w-7xl">
+			<Box className="my-0 mx-auto mt-[40px] mb-14 max-w-7xl">
 				<Grid
 					container
 					spacing={{ xs: 2, md: 3 }}

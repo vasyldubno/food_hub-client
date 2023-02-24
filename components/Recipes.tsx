@@ -1,5 +1,4 @@
 import { Box } from '@mui/material'
-import axios from 'axios'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Recipe } from '../types/RecipeInterface'
@@ -33,7 +32,6 @@ export const Recipes = () => {
 		},
 		{
 			onSuccess(data) {
-				console.log('data', data)
 				setRecipes(data)
 			},
 		}

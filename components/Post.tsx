@@ -29,7 +29,10 @@ export const Post: FC<Post> = ({ recipe }) => {
 					}
 				>
 					<Box className="ml-2">
-						<Link href={`/posts/${recipe._id}`}>
+						<Link
+							href={`/posts/${recipe._id}`}
+							aria-label={`Go to post ${recipe.title}`}
+						>
 							<Box className="relative h-[200px] overflow-hidden rounded-xl md:h-[300px] lg:h-[300px]">
 								<Image
 									src={`${recipe.image.url}`}

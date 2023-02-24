@@ -8,13 +8,12 @@
 		"start": "next start",
 		"test": "jest --watch",
 		"test:cli": "jest --coverage -silent --ci",
-		"lint": "next lint",
+		"lint": "eslint .",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook",
-		"check-types": "tsc --pretty --noEmit",
-		"check-format": "prettier --check .",
 		"check-lint": "eslint . --ext ts --ext tsx --ext js",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"lh": "next build && lhci autorun"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.7.1",
@@ -88,6 +87,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.20.2",
+		"@lhci/cli": "^0.11.0",
 		"@next/eslint-plugin-next": "^13.0.7",
 		"@storybook/addon-actions": "^6.5.13",
 		"@storybook/addon-essentials": "^6.5.13",
