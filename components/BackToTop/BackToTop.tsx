@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-unused-expressions */
 import { Box } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { BsFillArrowUpSquareFill } from 'react-icons/bs'

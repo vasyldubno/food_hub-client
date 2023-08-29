@@ -33,7 +33,7 @@ export const RecipesByCategory = () => {
 	return (
 		<Box className="my-0 mx-auto mb-14 mt-8 max-w-7xl">
 			<Typography
-				component={'h2'}
+				component="h2"
 				className="mb-8 text-center font-signika text-4xl font-bold text-[#3a3a3a]"
 			>
 				Browse by category
@@ -58,7 +58,7 @@ export const RecipesByCategory = () => {
 							<Typography className="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 pb-5 font-signika text-3xl font-semibold text-white">
 								{category.name}
 							</Typography>
-							<Box className="absolute top-10 h-full w-full bg-gradient-to-t from-black via-transparent to-transparent"></Box>
+							<Box className="absolute top-10 h-full w-full bg-gradient-to-t from-black via-transparent to-transparent" />
 						</Box>
 					</Link>
 				))}

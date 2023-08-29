@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { AppProps } from 'next/app'
 import Layout from '../components/layout'
 import '../styles/globals.css'
@@ -39,15 +41,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 	}, [])
 
 	return (
-		<>
-			<QueryClientProvider client={queryClient}>
-				<Hydrate state={pageProps.dehydratedState}>
-					<Layout>
-						<Component {...pageProps} />
-					</Layout>
-				</Hydrate>
-			</QueryClientProvider>
-		</>
+		<QueryClientProvider client={queryClient}>
+			<Hydrate state={pageProps.dehydratedState}>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</Hydrate>
+		</QueryClientProvider>
 	)
 }
 

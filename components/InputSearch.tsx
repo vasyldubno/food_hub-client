@@ -11,22 +11,20 @@ export const InputSearch = () => {
 
 	const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'Enter') {
+			// eslint-disable-next-line @typescript-eslint/no-floating-promises
 			router.push(`/search?search=${search}`)
 		}
 	}
 
 	return (
-		<>
-			<input
-				data-testid="input"
-				type="text"
-				className="ml-4 mr-4 h-14 bg-gray-500/50 px-2 font-signika text-white placeholder:font-signika placeholder:font-normal focus:outline-0"
-				placeholder="Search..."
-				value={search}
-				onChange={handleChange}
-				onKeyUp={handleKeyUp}
-			/>
-		</>
+		<input
+			data-testid="input"
+			type="text"
+			className="ml-4 mr-4 h-14 bg-gray-500/50 px-2 font-signika text-white placeholder:font-signika placeholder:font-normal focus:outline-0"
+			placeholder="Search..."
+			value={search}
+			onChange={handleChange}
+			onKeyUp={handleKeyUp}
+		/>
 	)
 }
-// create test for handleKeyUp onKeyUp using react-testing-library

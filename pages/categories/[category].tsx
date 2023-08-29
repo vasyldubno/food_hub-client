@@ -21,10 +21,11 @@ export default function Page() {
 	const { isLoading } = useQuery(
 		['posts', category],
 		async () => {
-			return await sanityClient.fetch(
+			const result = (await sanityClient.fetch(
 				`*[_type == 'post' && categories->name == $category]`,
 				{ category }
-			)
+			)) as unknown
+			return result as Recipe[]
 		},
 		{
 			enabled: !!category,
@@ -41,7 +42,7 @@ export default function Page() {
 	return (
 		<>
 			<Head>
-				<title>{category?.charAt(0).toUpperCase() + category?.slice(1)}</title>
+				<title>{category.charAt(0).toUpperCase() + category.slice(1)}</title>
 			</Head>
 			{error && <p>Error {errorMessage}</p>}
 			{isLoading && (
@@ -56,7 +57,7 @@ export default function Page() {
 				}}
 				className="z-50 flex h-[25vh] items-center justify-center bg-cover bg-center bg-no-repeat font-signika text-[3rem] text-white sm:text-9xl"
 			>
-				{category?.charAt(0).toUpperCase() + category?.slice(1)}
+				{category.charAt(0).toUpperCase() + category.slice(1)}
 			</Box>
 			<Box className="my-0 mx-auto mt-[40px] mb-14 max-w-7xl">
 				<Grid

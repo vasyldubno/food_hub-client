@@ -19,46 +19,44 @@ export const Post: FC<Post> = ({ recipe }) => {
 	})
 
 	return (
-		<>
-			<motion.div ref={ref}>
-				<Box
-					className={
-						isInView
-							? 'scale-100 opacity-100 transition-all duration-300'
-							: 'scale-0 opacity-0'
-					}
-				>
-					<Box className="">
-						<Link
-							href={`/posts/${recipe._id}`}
-							aria-label={`Go to post ${recipe.title}`}
-						>
-							<Box className="relative h-[200px] overflow-hidden rounded-xl md:h-[300px] lg:h-[300px]">
-								<Image
-									src={`${recipe.image.url}`}
-									alt="recipe"
-									fill
-									sizes="(min-width: 320px) 100vw"
-									priority
-									className=" object-cover duration-300 hover:scale-110 hover:duration-300"
-								/>
-							</Box>
+		<motion.div ref={ref}>
+			<Box
+				className={
+					isInView
+						? 'scale-100 opacity-100 transition-all duration-300'
+						: 'scale-0 opacity-0'
+				}
+			>
+				<Box className="">
+					<Link
+						href={`/posts/${recipe._id}`}
+						aria-label={`Go to post ${recipe.title}`}
+					>
+						<Box className="relative h-[200px] overflow-hidden rounded-xl md:h-[300px] lg:h-[300px]">
+							<Image
+								src={`${recipe.image.url}`}
+								alt="recipe"
+								fill
+								sizes="(min-width: 320px) 100vw"
+								priority
+								className=" object-cover duration-300 hover:scale-110 hover:duration-300"
+							/>
+						</Box>
 
-							<Typography className="pt-3 font-signika text-xl font-semibold">
-								{recipe.title}
-							</Typography>
-							<Box className="pt-1">
-								<Box className="flex items-center gap-3">
-									<AvTimerIcon />
-									<Typography className="font-ubuntu text-base font-normal">
-										{recipe.total_time}
-									</Typography>
-								</Box>
+						<Typography className="pt-3 font-signika text-xl font-semibold">
+							{recipe.title}
+						</Typography>
+						<Box className="pt-1">
+							<Box className="flex items-center gap-3">
+								<AvTimerIcon />
+								<Typography className="font-ubuntu text-base font-normal">
+									{recipe.total_time}
+								</Typography>
 							</Box>
-						</Link>
-					</Box>
+						</Box>
+					</Link>
 				</Box>
-			</motion.div>
-		</>
+			</Box>
+		</motion.div>
 	)
 }

@@ -8,7 +8,7 @@ export const Nav = () => {
 	return (
 		<div className="sticky top-0 z-50 flex h-12 w-full items-center justify-center bg-white p-8 drop-shadow-lg">
 			<Box className="absolute left-0 ml-6 items-center justify-center md:relative">
-				<Link href={'/'} aria-label="Go to main page">
+				<Link href="/" aria-label="Go to main page">
 					<Typography className="font-signika text-4xl font-bold text-red-500">
 						JustRecipe
 					</Typography>
@@ -16,7 +16,7 @@ export const Nav = () => {
 			</Box>
 			<Box className="absolute right-0 mr-6 flex gap-3">
 				<Link
-					href={'https://www.instagram.com/'}
+					href="https://www.instagram.com/"
 					target="_blank"
 					aria-label="Go to Instagram"
 				>
@@ -25,7 +25,7 @@ export const Nav = () => {
 					</Box>
 				</Link>
 				<Link
-					href={'https://www.facebook.com/'}
+					href="https://www.facebook.com/"
 					target="_blank"
 					aria-label="Go to Facebook"
 				>
@@ -34,7 +34,7 @@ export const Nav = () => {
 					</Box>
 				</Link>
 				<Link
-					href={'https://www.tiktok.com/'}
+					href="https://www.tiktok.com/"
 					target="_blank"
 					aria-label="Go to Tiktok"
 				>

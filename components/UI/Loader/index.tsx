@@ -3,7 +3,7 @@ import { ColorRing } from 'react-loader-spinner'
 
 export const Loader: FC = () => (
 	<ColorRing
-		visible={true}
+		visible
 		height="180"
 		width="180"
 		ariaLabel="blocks-loading"

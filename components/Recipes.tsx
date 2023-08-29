@@ -11,10 +11,7 @@ export const Recipes = () => {
 	const { isLoading } = useQuery(
 		'',
 		async () => {
-			// return await axios.get(
-			// 	`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/recipes?populate=*`
-			// )
-			return await sanityClient.fetch(`*[_type == "post"]{
+			const result = (await sanityClient.fetch(`*[_type == "post"]{
 				categories->{
 					name
 				},
@@ -28,7 +25,8 @@ export const Recipes = () => {
 				total_time,
 				image,
 				_id
-			}`)
+			}`)) as unknown
+			return result as Recipe[]
 		},
 		{
 			onSuccess(data) {

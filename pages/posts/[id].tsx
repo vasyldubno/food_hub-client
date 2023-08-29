@@ -10,12 +10,12 @@ import { sanityClient } from '../../utils/sanityClient'
 export default function Page() {
 	const [post, setPost] = useState<Recipe>()
 	const { query } = useRouter()
-	const id = query.id
+	const { id } = query
 
 	const { isLoading } = useQuery(
 		['post', id],
 		async () => {
-			return await sanityClient.fetch(`*[_id == "${id}"]{
+			const result = (await sanityClient.fetch(`*[_id == "${id}"]{
 				categories->{
 					name
 				},
@@ -29,7 +29,8 @@ export default function Page() {
 				total_time,
 				image,
 				_id
-			}`)
+			}`)) as unknown
+			return result as Recipe[]
 		},
 		{
 			enabled: id !== undefined,
@@ -53,7 +54,7 @@ export default function Page() {
 					<div className="">
 						<Box className="pt-14 pb-14 text-center">
 							<Typography
-								component={'h1'}
+								component="h1"
 								className="font-signika text-5xl font-bold text-black"
 							>
 								{post.title}
