@@ -29,7 +29,7 @@ export const Footer = () => {
 					</Box>
 				</Box>
 				<Box className="flex w-full items-center justify-center py-3 font-signika">
-					&#169; Food Hub 2023 - All Rights Reserved
+					&#169; JustRecipe 2023 - All Rights Reserved
 				</Box>
 			</Container>
 		</Box>
