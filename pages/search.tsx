@@ -9,13 +9,14 @@ import { sanityClient } from '../utils/sanityClient'
 
 export default function Page() {
 	const router = useRouter()
-	const search = router.query.search
+	const { search } = router.query
 	const [recipes, setRecipes] = useState<Recipe[]>([])
 
 	const { isLoading } = useQuery(
 		['', search],
 		async () => {
-			return await sanityClient.fetch(`*[_type == "post" && title match "*${search}*" || categories->name match "*${search}*"]{
+			const result =
+				(await sanityClient.fetch(`*[_type == "post" && title match "*${search}*" || categories->name match "*${search}*"]{
 				categories->{
 					name
 				},
@@ -29,7 +30,8 @@ export default function Page() {
 				total_time,
 				image,
 				_id
-			}`)
+			}`)) as unknown
+			return result as Recipe[]
 		},
 		{
 			enabled: !!search,
