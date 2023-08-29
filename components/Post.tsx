@@ -28,7 +28,7 @@ export const Post: FC<Post> = ({ recipe }) => {
 							: 'scale-0 opacity-0'
 					}
 				>
-					<Box className="ml-2">
+					<Box className="">
 						<Link
 							href={`/posts/${recipe._id}`}
 							aria-label={`Go to post ${recipe.title}`}

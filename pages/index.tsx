@@ -1,3 +1,4 @@
+import { BackToTop } from 'components/BackToTop/BackToTop'
 import Head from 'next/head'
 import { CallToAction } from '../components/CallToAction'
 import { Header } from '../components/Header'
@@ -14,6 +15,7 @@ export default function Page() {
 			<RecipesByCategory />
 			<CallToAction />
 			<Recipes />
+			<BackToTop />
 		</>
 	)
 }

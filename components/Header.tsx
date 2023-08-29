@@ -16,7 +16,7 @@ export const Header = () => {
 					<Typography
 						variant="h2"
 						component={'h2'}
-						className="px-5 font-signika font-medium text-white"
+						className="px-5 font-signika text-5xl font-medium text-white sm:text-6xl"
 					>
 						Find a Recipe
 					</Typography>

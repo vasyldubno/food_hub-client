@@ -1,19 +1,8 @@
+import FacebookIcon from '@mui/icons-material/Facebook'
+import InstagramIcon from '@mui/icons-material/Instagram'
 import { Box, Typography } from '@mui/material'
 import Link from 'next/link'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import FacebookIcon from '@mui/icons-material/Facebook'
 import { FaTiktok } from 'react-icons/fa'
-import { Cherry_Swash, Signika } from '@next/font/google'
-
-const signika = Signika({
-	subsets: ['latin'],
-	weight: ['700', '300', '400', '500', '600'],
-})
-
-const cherry = Cherry_Swash({
-	subsets: ['latin'],
-	weight: '700',
-})
 
 export const Nav = () => {
 	return (
@@ -21,7 +10,7 @@ export const Nav = () => {
 			<Box className="absolute left-0 ml-6 items-center justify-center md:relative">
 				<Link href={'/'} aria-label="Go to main page">
 					<Typography className="font-signika text-4xl font-bold text-red-500">
-						food hub
+						JustRecipe
 					</Typography>
 				</Link>
 			</Box>

@@ -47,14 +47,14 @@ export default function Page() {
 			{isLoading ? (
 				<p>Loading...</p>
 			) : (
-				<Box className="my-0 mx-auto mt-[100px] mb-14 max-w-7xl">
+				<Box className="my-0 mx-auto mt-5 mb-5 max-w-7xl px-2">
 					<Grid
 						container
-						spacing={{ xs: 2, md: 3 }}
+						spacing={{ xs: 2, sm: 3 }}
 						columns={{ xs: 4, sm: 8, md: 12 }}
 					>
 						{recipes.map((recipe, index) => (
-							<Grid item xs={2} sm={4} md={3} key={index}>
+							<Grid item xs={12} sm={4} md={4} key={index}>
 								<Post recipe={recipe} />
 							</Grid>
 						))}

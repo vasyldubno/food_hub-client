@@ -3,8 +3,8 @@ import { Box, Button, Typography } from '@mui/material'
 export const CallToAction = () => {
 	return (
 		<>
-			<div className="flex flex-col items-center justify-center bg-red-600 p-3 text-center lg:flex-row">
-				<Typography className="mr-8 p-5 font-signika text-2xl font-normal text-white">
+			<div className="flex flex-col items-center justify-center gap-5 bg-red-600 p-5 text-center lg:flex-row lg:justify-between">
+				<Typography className="font-signika text-xl font-normal text-white sm:max-w-[500px] sm:text-3xl">
 					Get our latest recipes and expert tips right in your inbox
 				</Typography>
 				<Box>

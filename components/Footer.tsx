@@ -1,14 +1,8 @@
 import { Box, Container, Typography } from '@mui/material'
-import Link from 'next/link'
-import { BsFillArrowUpSquareFill } from 'react-icons/bs'
 
 export const Footer = () => {
-	const backToTop = () => {
-		scrollTo({ top: 0, behavior: 'smooth' })
-	}
-
 	return (
-		<Box className="relative">
+		<Box className="">
 			<Box className="mb-2 h-[1px] w-full bg-yellow-500" />
 			<Container className="relative max-w-[1350px]">
 				<Box className="flex w-full flex-col items-center justify-center gap-3 py-3 md:flex-row lg:gap-24">
@@ -38,11 +32,6 @@ export const Footer = () => {
 					&#169; Food Hub 2023 - All Rights Reserved
 				</Box>
 			</Container>
-			<Box className="absolute bottom-4 right-4 cursor-pointer">
-				<Box onClick={backToTop}>
-					<BsFillArrowUpSquareFill className="h-6 w-6 lg:h-12 lg:w-12" />
-				</Box>
-			</Box>
 		</Box>
 	)
 }
