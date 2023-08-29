@@ -16,7 +16,7 @@ export default function Page() {
 	const [errorMessage, setErrorMessage] = useState<string | undefined>('')
 
 	const { query } = useRouter()
-	const category = query.category as string
+	const { category } = query
 
 	const { isLoading } = useQuery(
 		['posts', category],
@@ -42,7 +42,11 @@ export default function Page() {
 	return (
 		<>
 			<Head>
-				<title>{category.charAt(0).toUpperCase() + category.slice(1)}</title>
+				<title>
+					{!Array.isArray(category) &&
+						category &&
+						`${category.charAt(0).toUpperCase()}${category.slice(1)}`}
+				</title>
 			</Head>
 			{error && <p>Error {errorMessage}</p>}
 			{isLoading && (
@@ -57,7 +61,9 @@ export default function Page() {
 				}}
 				className="z-50 flex h-[25vh] items-center justify-center bg-cover bg-center bg-no-repeat font-signika text-[3rem] text-white sm:text-9xl"
 			>
-				{category.charAt(0).toUpperCase() + category.slice(1)}
+				{!Array.isArray(category) &&
+					category &&
+					`${category.charAt(0).toUpperCase()}${category.slice(1)}`}
 			</Box>
 			<Box className="my-0 mx-auto mt-[40px] mb-14 max-w-7xl">
 				<Grid

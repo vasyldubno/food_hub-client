@@ -67,6 +67,8 @@
 		"react/no-array-index-key": "off",
 		"no-nested-ternary": "off",
 		"no-shadow": "off",
-		"@typescript-eslint/restrict-template-expressions": "off"
+		"@typescript-eslint/restrict-template-expressions": "off",
+		"@typescript-eslint/no-unsafe-call": "off",
+		"@typescript-eslint/no-unsafe-member-access": "off"
 	}
 }
