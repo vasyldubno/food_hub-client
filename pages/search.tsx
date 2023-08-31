@@ -44,7 +44,7 @@ export default function Page() {
 	return (
 		<>
 			<Head>
-				<title>Search</title>
+				<title>Search | Just Recipe</title>
 			</Head>
 			{isLoading ? (
 				<p>Loading...</p>

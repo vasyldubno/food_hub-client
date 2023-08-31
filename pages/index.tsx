@@ -9,7 +9,7 @@ export default function Page() {
 	return (
 		<>
 			<Head>
-				<title>Food Hub</title>
+				<title>Just Recipe</title>
 			</Head>
 			<Header />
 			<RecipesByCategory />
