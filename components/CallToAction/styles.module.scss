@@ -1,0 +1,14 @@
+.formWrapper {
+	@media (max-width: 370px) {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+}
+
+.button {
+	@apply h-14 rounded-xl bg-white px-6 font-signika;
+	@media (min-width: 371px) {
+		@apply ml-5;
+	}
+}

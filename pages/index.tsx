@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { CallToAction } from '../components/CallToAction'
+import { CallToAction } from '../components/CallToAction/CallToAction'
 import { Header } from '../components/Header'
 import { Recipes } from '../components/Recipes'
 import { RecipesByCategory } from '../components/RecipesByCategory'
