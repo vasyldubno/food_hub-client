@@ -1,6 +1,5 @@
 import { Box, Grid } from '@mui/material'
-import axios, { AxiosError } from 'axios'
-import { url } from 'inspector'
+import { AxiosError } from 'axios'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -65,14 +64,14 @@ export default function Page() {
 					category &&
 					`${category.charAt(0).toUpperCase()}${category.slice(1)}`}
 			</Box>
-			<Box className="my-0 mx-auto mt-[40px] mb-14 max-w-7xl">
+			<Box className="my-0 mx-auto mt-5 mb-5 max-w-7xl px-2">
 				<Grid
 					container
 					spacing={{ xs: 2, md: 3 }}
 					columns={{ xs: 4, sm: 8, md: 12 }}
 				>
 					{posts.map((post, index) => (
-						<Grid item xs={2} sm={4} md={3} key={post._id}>
+						<Grid item xs={12} sm={4} md={4} key={post._id}>
 							<Post recipe={post} />
 						</Grid>
 					))}

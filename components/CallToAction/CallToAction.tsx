@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import s from './styles.module.scss'
 
 export const CallToAction = () => {

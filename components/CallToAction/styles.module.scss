@@ -7,7 +7,7 @@
 }
 
 .button {
-	@apply h-14 rounded-xl bg-white px-6 font-signika;
+	@apply h-14 rounded-xl bg-orange-400 px-6 font-signika text-white;
 	@media (min-width: 371px) {
 		@apply ml-5;
 	}
