@@ -6,5 +6,4 @@ App that helps you find recipes for breakfast, lunch and dinner.
 Front-end - [Next.JS](https://nextjs.org)  
 Back-end - [Sanity](https://www.sanity.io)
 
-## Deploy
-[Demo](https://justrecipe.vercel.app)
+
